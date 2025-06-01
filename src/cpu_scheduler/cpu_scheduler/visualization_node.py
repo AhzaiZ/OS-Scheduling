@@ -11,7 +11,7 @@ class TripleVisualizationNode(Node):
     def __init__(self):
         super().__init__('triple_visualization_node')
         
-        # Subscribers for FCFS
+        
         self.fcfs_scheduled_subscriber = self.create_subscription(
             String, 'scheduled_process', self.on_fcfs_process_scheduled, 10)
         self.fcfs_completed_subscriber = self.create_subscription(
@@ -19,7 +19,7 @@ class TripleVisualizationNode(Node):
         self.fcfs_request_subscriber = self.create_subscription(
             String, 'process_requests', self.on_fcfs_process_request, 10)
         
-        # Subscribers for Round Robin
+       
         self.rr_scheduled_subscriber = self.create_subscription(
             String, 'scheduled_process_RR', self.on_rr_process_scheduled, 10)
         self.rr_completed_subscriber = self.create_subscription(
@@ -27,7 +27,6 @@ class TripleVisualizationNode(Node):
         self.rr_request_subscriber = self.create_subscription(
             String, 'process_requests', self.on_rr_process_request, 10)
         
-        # Subscribers for Priority Scheduling
         self.priority_scheduled_subscriber = self.create_subscription(
             String, 'scheduled_process_Priority', self.on_priority_process_scheduled, 10)
         self.priority_completed_subscriber = self.create_subscription(
@@ -39,10 +38,10 @@ class TripleVisualizationNode(Node):
         self.priority_update_subscriber = self.create_subscription(
             String, 'priority_updates', self.on_priority_update, 10)
         
-        # Publishers
+       
         self.marker_publisher = self.create_publisher(MarkerArray, 'triple_visualization_marker_array', 10)
         
-        # State tracking for all schedulers
+
         self.fcfs_process_states = {}
         self.rr_process_states = {}
         self.priority_process_states = {}
@@ -51,16 +50,13 @@ class TripleVisualizationNode(Node):
         self.rr_current_running = None
         self.priority_current_running = None
         
-        # Track completion order (most recent first)
         self.fcfs_completed_order = []
         self.rr_completed_order = []
         self.priority_completed_order = []
         
-        # Priority-specific data
-        self.priority_info = {}  # pid -> {'duration': float, 'priority': float}
+        self.priority_info = {} 
         self.original_priorities = {}
         
-        # Timer to update display
         self.display_timer = self.create_timer(0.1, self.update_display)
         
         self.get_logger().info("Triple Scheduler Visualization Node started - comparing FCFS, Round Robin, and Priority")
@@ -75,7 +71,6 @@ class TripleVisualizationNode(Node):
                 'priority': priority_val
             }
             
-            # Store original priority if not already stored
             if pid not in self.original_priorities:
                 self.original_priorities[pid] = priority_val
                 
@@ -90,11 +85,9 @@ class TripleVisualizationNode(Node):
         if process_id not in self.priority_process_states:
             current_time = time.time()
             
-            # Get priority info if available (this will now include updated priorities)
             priority_val = self.priority_info.get(process_id, {}).get('priority', 0.0)
             duration_val = self.priority_info.get(process_id, {}).get('duration', 0.0)
             
-            # Store original priority if not already stored
             if process_id not in self.original_priorities:
                 self.original_priorities[process_id] = priority_val
             
@@ -107,12 +100,12 @@ class TripleVisualizationNode(Node):
                 'cpu_burst': None,
                 'wait_time': 0.0,
                 'turnaround_time': 0.0,
-                'response_time': None,  # New: Response time tracking
-                'first_execution_time': None,  # New: Time when first executed
+                'response_time': None, 
+                'first_execution_time': None, 
                 'arrival_time': current_time,
                 'preemption_count': 0,
                 'completion_time': None,
-                'priority': priority_val,  # This will now reflect any aging updates
+                'priority': priority_val,  
                 'expected_duration': duration_val
             }
             self.get_logger().info(f"Priority: Process {process_id} added (WAITING) - Priority: {priority_val}")
@@ -123,31 +116,26 @@ class TripleVisualizationNode(Node):
         if process_id in self.priority_process_states:
             current_time = time.time()
             
-            # Handle previous running process
             if self.priority_current_running and self.priority_current_running in self.priority_process_states:
                 if self.priority_process_states[self.priority_current_running]['state'] == 'RUNNING':
                     prev_process = self.priority_process_states[self.priority_current_running]
                     if prev_process['start_time']:
                         prev_process['total_time'] += current_time - prev_process['start_time']
-                    # If previous process is being preempted, set it back to waiting
                     if self.priority_current_running != process_id:
                         self.priority_process_states[self.priority_current_running]['start_time'] = None
                         self.priority_process_states[self.priority_current_running]['state'] = 'WAITING'
                         self.priority_process_states[self.priority_current_running]['wait_start'] = current_time
                         self.priority_process_states[self.priority_current_running]['preemption_count'] += 1
             
-            # Calculate wait time for the process being scheduled
             process_info = self.priority_process_states[process_id]
             if process_info['wait_start'] and process_info['state'] == 'WAITING':
                 process_info['wait_time'] += current_time - process_info['wait_start']
             
-            # Calculate response time if this is first execution
             if process_info['first_execution_time'] is None:
                 process_info['first_execution_time'] = current_time
                 if process_info['arrival_time']:
                     process_info['response_time'] = current_time - process_info['arrival_time']
             
-            # Set new process as running
             process_info['state'] = 'RUNNING'
             process_info['start_time'] = current_time
             self.priority_current_running = process_id
@@ -162,30 +150,26 @@ class TripleVisualizationNode(Node):
                 pid = parts[0].strip()
                 new_priority = float(parts[1])
                 
-                # Store original priority if not already stored (safety check)
                 if pid not in self.original_priorities:
-                    # Use current priority as original if we haven't seen it before
+                   
                     current_priority = self.priority_process_states.get(pid, {}).get('priority', new_priority)
                     self.original_priorities[pid] = current_priority
                 
-                # Update priority in process states if process exists
                 if pid in self.priority_process_states:
                     old_priority = self.priority_process_states[pid].get('priority', 0.0)
                     self.priority_process_states[pid]['priority'] = new_priority
                     self.get_logger().info(f"Priority updated for {pid}: {old_priority:.1f} -> {new_priority:.1f}")
                 
-                # Also update priority_info dictionary
                 if pid in self.priority_info:
                     self.priority_info[pid]['priority'] = new_priority
                 else:
-                    # Create entry if it doesn't exist
                     self.priority_info[pid] = {
                         'priority': new_priority,
                         'duration': 0.0  # Will be updated when duration info comes
                     }
                     
         except (ValueError, IndexError) as e:
-            self.get_logger().error(f"❌ Bad format in priority_updates: {msg.data} - {str(e)}")
+            self.get_logger().error(f" Bad format in priority_updates: {msg.data} - {str(e)}")
 
 
 
@@ -195,21 +179,17 @@ class TripleVisualizationNode(Node):
             current_time = time.time()
             process_info = self.priority_process_states[process_id]
             
-            # Calculate final execution time
             if process_info['start_time']:
                 process_info['total_time'] += current_time - process_info['start_time']
             
-            # Set CPU burst to actual CPU time used
             process_info['cpu_burst'] = process_info['total_time']
             
-            # Calculate turnaround time
             if process_info['arrival_time']:
                 process_info['turnaround_time'] = current_time - process_info['arrival_time']
             
             process_info['state'] = 'COMPLETED'
             process_info['completion_time'] = current_time
             
-            # Add to completion order (most recent first)
             self.priority_completed_order.insert(0, process_id)
             
             if self.priority_current_running == process_id:
@@ -232,8 +212,8 @@ class TripleVisualizationNode(Node):
                 'cpu_burst': None,
                 'wait_time': 0.0,
                 'turnaround_time': 0.0,
-                'response_time': None,  # New: Response time tracking
-                'first_execution_time': None,  # New: Time when first executed
+                'response_time': None,  
+                'first_execution_time': None,  
                 'arrival_time': current_time,
                 'preemption_count': 0,
                 'completion_time': None
@@ -253,8 +233,8 @@ class TripleVisualizationNode(Node):
                 'cpu_burst': None,
                 'wait_time': 0.0,
                 'turnaround_time': 0.0,
-                'response_time': None,  # New: Response time tracking
-                'first_execution_time': None,  # New: Time when first executed
+                'response_time': None,  
+                'first_execution_time': None, 
                 'arrival_time': current_time,
                 'completion_time': None
             }
@@ -265,25 +245,21 @@ class TripleVisualizationNode(Node):
         if process_id in self.fcfs_process_states:
             current_time = time.time()
             
-            # Set previous running process state if exists
             if self.fcfs_current_running and self.fcfs_current_running in self.fcfs_process_states:
                 if self.fcfs_process_states[self.fcfs_current_running]['state'] == 'RUNNING':
                     prev_process = self.fcfs_process_states[self.fcfs_current_running]
                     if prev_process['start_time']:
                         prev_process['total_time'] += current_time - prev_process['start_time']
             
-            # Calculate wait time for the process being scheduled
             process_info = self.fcfs_process_states[process_id]
             if process_info['wait_start']:
                 process_info['wait_time'] = current_time - process_info['wait_start']
             
-            # Calculate response time (first time being executed)
             if process_info['first_execution_time'] is None:
                 process_info['first_execution_time'] = current_time
                 if process_info['arrival_time']:
                     process_info['response_time'] = current_time - process_info['arrival_time']
             
-            # Set new process as running
             process_info['state'] = 'RUNNING'
             process_info['start_time'] = current_time
             self.fcfs_current_running = process_id
@@ -297,22 +273,18 @@ class TripleVisualizationNode(Node):
             current_time = time.time()
             process_info = self.fcfs_process_states[process_id]
             
-            # Calculate final execution time
             if process_info['start_time']:
                 final_execution_time = current_time - process_info['start_time']
                 process_info['total_time'] = final_execution_time  # Set, don't add
             
-            # Set CPU burst to actual CPU time used
             process_info['cpu_burst'] = original_duration if original_duration else process_info['total_time']
             
-            # Calculate turnaround time
             if process_info['arrival_time']:
                 process_info['turnaround_time'] = current_time - process_info['arrival_time']
             
             process_info['state'] = 'COMPLETED'
             process_info['completion_time'] = current_time
             
-            # Add to completion order (most recent first)
             self.fcfs_completed_order.insert(0, process_id)
             
             if self.fcfs_current_running == process_id:
@@ -326,30 +298,28 @@ class TripleVisualizationNode(Node):
         if process_id in self.rr_process_states:
             current_time = time.time()
             
-            # Handle previous running process
+         
             if self.rr_current_running and self.rr_current_running in self.rr_process_states:
                 if self.rr_process_states[self.rr_current_running]['state'] == 'RUNNING':
                     prev_process = self.rr_process_states[self.rr_current_running]
                     if prev_process['start_time']:
                         prev_process['total_time'] += current_time - prev_process['start_time']
-                    # If previous process is being preempted (not completed), set it back to waiting
+                   
                     if self.rr_current_running != process_id:
                         self.rr_process_states[self.rr_current_running]['state'] = 'WAITING'
                         self.rr_process_states[self.rr_current_running]['wait_start'] = current_time
                         self.rr_process_states[self.rr_current_running]['preemption_count'] += 1
             
-            # Calculate wait time for the process being scheduled
+            
             process_info = self.rr_process_states[process_id]
             if process_info['wait_start'] and process_info['state'] == 'WAITING':
                 process_info['wait_time'] += current_time - process_info['wait_start']
             
-            # Calculate response time if this is first execution
             if process_info['first_execution_time'] is None:
                 process_info['first_execution_time'] = current_time
                 if process_info['arrival_time']:
                     process_info['response_time'] = current_time - process_info['arrival_time']
             
-            # Set new process as running
             process_info['state'] = 'RUNNING'
             process_info['start_time'] = current_time
             self.rr_current_running = process_id
@@ -361,21 +331,17 @@ class TripleVisualizationNode(Node):
             current_time = time.time()
             process_info = self.rr_process_states[process_id]
             
-            # Calculate final execution time
             if process_info['start_time']:
                 process_info['total_time'] += current_time - process_info['start_time']
             
-            # Set CPU burst to actual CPU time used
             process_info['cpu_burst'] = process_info['total_time']
             
-            # Calculate turnaround time
             if process_info['arrival_time']:
                 process_info['turnaround_time'] = current_time - process_info['arrival_time']
             
             process_info['state'] = 'COMPLETED'
             process_info['completion_time'] = current_time
             
-            # Add to completion order (most recent first)
             self.rr_completed_order.insert(0, process_id)
             
             if self.rr_current_running == process_id:
@@ -404,14 +370,12 @@ class TripleVisualizationNode(Node):
     def update_display(self):
         marker_array = MarkerArray()
         
-        # Clear all existing markers first
         delete_marker = Marker()
         delete_marker.header.frame_id = "map"
         delete_marker.header.stamp = self.get_clock().now().to_msg()
         delete_marker.action = Marker.DELETEALL
         marker_array.markers.append(delete_marker)
         
-        # Create main title
         title_marker = self.create_text_marker(
             0, "CPU Scheduling Comparison: FCFS vs Round Robin vs Priority", 
             0.0, 11.0, 1.0, 1.0, 1.0, 1.0, 1.0  # White, large text
@@ -420,7 +384,6 @@ class TripleVisualizationNode(Node):
         
         marker_id = 1
         
-        # FCFS Section (Left side) - moved further left
         fcfs_title = self.create_text_marker(
             marker_id, "FIRST COME FIRST SERVE (FCFS)", 
             -18.0, 9.0, 0.7, 0.0, 1.0, 1.0, 1.0  # Cyan
@@ -428,7 +391,6 @@ class TripleVisualizationNode(Node):
         marker_array.markers.append(fcfs_title)
         marker_id += 1
         
-        # FCFS Statistics - now includes response time
         fcfs_avg_wait, fcfs_avg_turnaround, fcfs_avg_response, fcfs_completed = self.calculate_averages(self.fcfs_process_states)
         if fcfs_completed > 0:
             fcfs_stats = self.create_text_marker(
@@ -438,12 +400,10 @@ class TripleVisualizationNode(Node):
             marker_array.markers.append(fcfs_stats)
             marker_id += 1
         
-        # FCFS Process Display
         marker_id = self.display_scheduler_processes(marker_array, self.fcfs_process_states, 
                                                 self.fcfs_current_running, self.fcfs_completed_order,
                                                 -18.0, 7.8, marker_id, "FCFS")
         
-        # Round Robin Section (Center)
         rr_title = self.create_text_marker(
             marker_id, "ROUND ROBIN (RR)", 
             0.0, 9.0, 0.7, 1.0, 0.0, 1.0, 1.0  # Magenta
@@ -451,7 +411,6 @@ class TripleVisualizationNode(Node):
         marker_array.markers.append(rr_title)
         marker_id += 1
         
-        # RR Statistics - now includes response time
         rr_avg_wait, rr_avg_turnaround, rr_avg_response, rr_completed = self.calculate_averages(self.rr_process_states)
         if rr_completed > 0:
             rr_stats = self.create_text_marker(
@@ -461,20 +420,17 @@ class TripleVisualizationNode(Node):
             marker_array.markers.append(rr_stats)
             marker_id += 1
         
-        # RR Process Display
         marker_id = self.display_scheduler_processes(marker_array, self.rr_process_states, 
                                                 self.rr_current_running, self.rr_completed_order,
                                                 0.0, 7.8, marker_id, "RR")
         
-        # Priority Section (Right side) - moved further right
         priority_title = self.create_text_marker(
             marker_id, "PRIORITY SCHEDULING", 
-            18.0, 9.0, 0.7, 1.0, 1.0, 0.0, 1.0  # Yellow
+            18.0, 9.0, 0.7, 1.0, 1.0, 0.0, 1.0  
         )
         marker_array.markers.append(priority_title)
         marker_id += 1
         
-        # Priority Statistics - now includes response time
         priority_avg_wait, priority_avg_turnaround, priority_avg_response, priority_completed = self.calculate_averages(self.priority_process_states)
         if priority_completed > 0:
             priority_stats = self.create_text_marker(
@@ -484,21 +440,18 @@ class TripleVisualizationNode(Node):
             marker_array.markers.append(priority_stats)
             marker_id += 1
         
-        # Priority Process Display
         marker_id = self.display_scheduler_processes(marker_array, self.priority_process_states, 
                                                 self.priority_current_running, self.priority_completed_order,
                                                 18.0, 7.8, marker_id, "Priority")
         
-        # Comparison Section (Bottom) - lowered positions
         if fcfs_completed > 0 or rr_completed > 0 or priority_completed > 0:
             comparison_title = self.create_text_marker(
                 marker_id, "PERFORMANCE COMPARISON", 
-                0.0, -3.0, 0.8, 1.0, 0.5, 0.0, 1.0  # Orange
+                0.0, -3.0, 0.8, 1.0, 0.5, 0.0, 1.0 
             )
             marker_array.markers.append(comparison_title)
             marker_id += 1
             
-            # Find best performers
             schedulers = []
             if fcfs_completed > 0:
                 schedulers.append(("FCFS", fcfs_avg_wait, fcfs_avg_turnaround, fcfs_avg_response))
@@ -513,32 +466,30 @@ class TripleVisualizationNode(Node):
                 wait_comp_text = f"Best Avg Wait Time: {best_wait[0]} ({best_wait[1]:.2f}s)"
                 wait_comp_marker = self.create_text_marker(
                     marker_id, wait_comp_text, 
-                    0.0, -3.6, 0.5, 0.0, 1.0, 0.0, 1.0  # Green
+                    0.0, -3.6, 0.5, 0.0, 1.0, 0.0, 1.0  
                 )
                 marker_array.markers.append(wait_comp_marker)
                 marker_id += 1
                 
-                # Best response time
                 best_response = min(schedulers, key=lambda x: x[3])
                 response_comp_text = f"Best Avg Response Time: {best_response[0]} ({best_response[3]:.2f}s)"
                 response_comp_marker = self.create_text_marker(
                     marker_id, response_comp_text, 
-                    0.0, -4.1, 0.5, 0.0, 1.0, 0.0, 1.0  # Green
+                    0.0, -4.1, 0.5, 0.0, 1.0, 0.0, 1.0 
                 )
                 marker_array.markers.append(response_comp_marker)
                 marker_id += 1
                 
-                # Best turnaround time
                 best_tat = min(schedulers, key=lambda x: x[2])
                 tat_comp_text = f"Best Avg Turnaround: {best_tat[0]} ({best_tat[2]:.2f}s)"
                 tat_comp_marker = self.create_text_marker(
                     marker_id, tat_comp_text, 
-                    0.0, -4.6, 0.5, 0.0, 1.0, 0.0, 1.0  # Green
+                    0.0, -4.6, 0.5, 0.0, 1.0, 0.0, 1.0  
                 )
                 marker_array.markers.append(tat_comp_marker)
                 marker_id += 1
         
-        # Publish the marker array
+      
         self.marker_publisher.publish(marker_array)
         
 
@@ -546,25 +497,21 @@ class TripleVisualizationNode(Node):
         """Display processes for a specific scheduler with most recent completed first"""
         current_time = time.time()
         
-        # Create process list with completion order consideration
         sorted_processes = []
         
-        # Add running process first
         if current_running and current_running in process_states:
             sorted_processes.append((current_running, process_states[current_running]))
         
-        # Add waiting processes
         for process_id, info in process_states.items():
             if info['state'] == 'WAITING':
                 sorted_processes.append((process_id, info))
         
-        # Add completed processes in order (most recent first)
-        for process_id in completed_order[:6]:  # Limit to most recent 6 completed
+        for process_id in completed_order[:6]:  
             if process_id in process_states:
                 sorted_processes.append((process_id, process_states[process_id]))
         
         row_height = 0.35
-        max_display = 10  # Limit number of processes displayed
+        max_display = 10  
         
         for idx, (process_id, info) in enumerate(sorted_processes[:max_display]):
             state = info['state']
@@ -593,7 +540,7 @@ class TripleVisualizationNode(Node):
                 run_time = current_time - info['start_time'] if info['start_time'] else 0
                 total_time = info['total_time'] + run_time
                 time_display = f"CPU: {total_time:.1f}s"
-                color = (0.0, 1.0, 0.0, 1.0)  # Green
+                color = (0.0, 1.0, 0.0, 1.0)  
                 
                 if scheduler_name == "Priority" and 'priority' in info:
                     original_priority = self.original_priorities.get(process_id, info['priority'])
@@ -606,11 +553,11 @@ class TripleVisualizationNode(Node):
                 else:
                     process_text = f"{process_id}: RUNNING ({time_display})"
                     
-            else:  # COMPLETED
+            else:  
                 cpu_burst = info['cpu_burst'] if info['cpu_burst'] else info['total_time']
                 response_time_str = f"{info['response_time']:.1f}s" if info['response_time'] is not None else "N/A"
                 time_display = f"CPU: {info['total_time']:.1f}s, Wait: {info['wait_time']:.1f}s, Resp: {response_time_str}, TAT: {info['turnaround_time']:.1f}s"
-                color = (1.0, 0.0, 1.0, 1.0)  # Red
+                color = (1.0, 0.0, 1.0, 1.0)  
                 
                 if scheduler_name == "Priority" and 'priority' in info:
                     original_priority = self.original_priorities.get(process_id, info['priority'])
@@ -639,7 +586,7 @@ class TripleVisualizationNode(Node):
             marker_array.markers.append(marker)
             marker_id += 1
         
-        # CPU Status
+ 
         if current_running and current_running in process_states:
             running_info = process_states[current_running]
             current_run_time = current_time - running_info['start_time'] if running_info['start_time'] else 0
@@ -661,12 +608,12 @@ class TripleVisualizationNode(Node):
         cpu_marker = self.create_text_marker(
             marker_id, cpu_status,
             x_offset, y_start - (max_display * row_height) - 0.5, 0.35,
-            0.0, 1.0, 1.0, 1.0  # Cyan
+            0.0, 1.0, 1.0, 1.0  
         )
         marker_array.markers.append(cpu_marker)
         marker_id += 1
         
-        # Queue summary
+        
         waiting_count = sum(1 for info in process_states.values() if info['state'] == 'WAITING')
         completed_count = sum(1 for info in process_states.values() if info['state'] == 'COMPLETED')
         
@@ -698,24 +645,23 @@ class TripleVisualizationNode(Node):
         marker.pose.orientation.z = 0.0
         marker.pose.orientation.w = 1.0
 
-        # Adjusted color mapping based on known values
+        
         def adjust_color(r, g, b):
             original = (r, g, b)
-            if original == (1.0, 1.0, 0.0):     # Yellow → Orange
-                return 1.0, 0.65, 0.0           # #FFA500
-            elif original == (1.0, 0.0, 1.0):   # Magenta → Soft Red
-                return 1.0, 0.2, 0.2            # #FF3333
-            elif original == (0.0, 1.0, 1.0):   # Cyan → Light Blue
-                return 0.3, 0.8, 1.0            # #4DC8FF
-            elif original == (1.0, 1.0, 0.0):   # Bright Yellow (again) → Gold
-                return 1.0, 0.84, 0.0           # #FFD700
-            elif original == (1.0, 0.5, 0.0):   # Orange → keep
+            if original == (1.0, 1.0, 0.0):     
+                return 1.0, 0.65, 0.0          
+            elif original == (1.0, 0.0, 1.0):  
+                return 1.0, 0.2, 0.2          
+            elif original == (0.0, 1.0, 1.0):   
+                return 0.3, 0.8, 1.0            
+            elif original == (1.0, 1.0, 0.0):  
+                return 1.0, 0.84, 0.0           
+            elif original == (1.0, 0.5, 0.0):  
                 return 1.0, 0.5, 0.0
-            elif original == (1.0, 0.0, 1.0):   # Red-magenta → Soft purple
-                return 0.87, 0.63, 0.87         # #DDA0DD
+            elif original == (1.0, 0.0, 1.0): 
+                return 0.87, 0.63, 0.87        
             else:
-                return r, g, b  # default (no adjustment)
-
+                return r, g, b 
         adj_r, adj_g, adj_b = adjust_color(r, g, b)
 
         marker.scale.z = scale
