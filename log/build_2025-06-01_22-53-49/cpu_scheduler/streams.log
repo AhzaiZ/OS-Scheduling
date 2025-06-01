@@ -1,0 +1,27 @@
+[1.384s] Invoking command in '/home/az/Desktop/ros2_ws/src/cpu_scheduler': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/az/Desktop/ros2_ws/build/cpu_scheduler/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cpu_scheduler build --build-base /home/az/Desktop/ros2_ws/build/cpu_scheduler/build install --record /home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log --single-version-externally-managed install_data
+[1.809s] running egg_info
+[1.843s] writing ../../build/cpu_scheduler/cpu_scheduler.egg-info/PKG-INFO
+[1.843s] writing dependency_links to ../../build/cpu_scheduler/cpu_scheduler.egg-info/dependency_links.txt
+[1.844s] writing entry points to ../../build/cpu_scheduler/cpu_scheduler.egg-info/entry_points.txt
+[1.844s] writing requirements to ../../build/cpu_scheduler/cpu_scheduler.egg-info/requires.txt
+[1.845s] writing top-level names to ../../build/cpu_scheduler/cpu_scheduler.egg-info/top_level.txt
+[1.910s] reading manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+[1.913s] writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+[1.914s] running build
+[1.914s] running build_py
+[1.917s] running install
+[1.919s] running install_lib
+[1.956s] running install_data
+[1.957s] running install_egg_info
+[1.989s] removing '/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler-0.1.0-py3.12.egg-info' (and everything under it)
+[1.991s] Copying ../../build/cpu_scheduler/cpu_scheduler.egg-info to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler-0.1.0-py3.12.egg-info
+[1.994s] running install_scripts
+[2.270s] Installing FCFS script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.272s] Installing Priority_Scheduling script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.273s] Installing process_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.273s] Installing process_table_printer script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.273s] Installing round_robin script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.274s] Installing terminal_monitor script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.274s] Installing visualization_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.274s] writing list of installed files to '/home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log'
+[2.302s] Invoked command in '/home/az/Desktop/ros2_ws/src/cpu_scheduler' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/az/Desktop/ros2_ws/build/cpu_scheduler/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cpu_scheduler build --build-base /home/az/Desktop/ros2_ws/build/cpu_scheduler/build install --record /home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log --single-version-externally-managed install_data

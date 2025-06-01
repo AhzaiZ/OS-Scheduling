@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: cpu-scheduler
+Version: 0.1.0
+Summary: FCFS CPU scheduling simulation with ROS2 Jazzy and RViz
+Maintainer: az
+Maintainer-email: az@todo.todo
+License: MIT

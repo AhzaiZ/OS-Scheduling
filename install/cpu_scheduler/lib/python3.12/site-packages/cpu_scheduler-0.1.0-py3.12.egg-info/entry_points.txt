@@ -1,0 +1,8 @@
+[console_scripts]
+FCFS = cpu_scheduler.FCFS:main
+Priority_Scheduling = cpu_scheduler.priority:main
+process_node = cpu_scheduler.process_node:main
+process_table_printer = cpu_scheduler.process_table_printer:main
+round_robin = cpu_scheduler.round_robin:main
+terminal_monitor = cpu_scheduler.terminal_monitor:main
+visualization_node = cpu_scheduler.visualization_node:main

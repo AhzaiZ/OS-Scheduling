@@ -1,0 +1,63 @@
+[1.399s] Invoking command in '/home/az/Desktop/ros2_ws/src/cpu_scheduler': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/az/Desktop/ros2_ws/build/cpu_scheduler/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cpu_scheduler build --build-base /home/az/Desktop/ros2_ws/build/cpu_scheduler/build install --record /home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log --single-version-externally-managed install_data
+[1.842s] running egg_info
+[1.844s] creating ../../build/cpu_scheduler/cpu_scheduler.egg-info
+[1.875s] writing ../../build/cpu_scheduler/cpu_scheduler.egg-info/PKG-INFO
+[1.875s] writing dependency_links to ../../build/cpu_scheduler/cpu_scheduler.egg-info/dependency_links.txt
+[1.877s] writing entry points to ../../build/cpu_scheduler/cpu_scheduler.egg-info/entry_points.txt
+[1.877s] writing requirements to ../../build/cpu_scheduler/cpu_scheduler.egg-info/requires.txt
+[1.877s] writing top-level names to ../../build/cpu_scheduler/cpu_scheduler.egg-info/top_level.txt
+[1.877s] writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+[1.941s] reading manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+[1.942s] writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+[1.943s] running build
+[1.943s] running build_py
+[1.944s] creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build
+[1.944s] creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib
+[1.944s] creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.944s] copying ./cpu_scheduler/process_node.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.945s] copying ./cpu_scheduler/terminal_monitor.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.945s] copying ./cpu_scheduler/__init__.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.947s] copying ./cpu_scheduler/visualization_node.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.947s] copying ./cpu_scheduler/process_table_printer.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.948s] copying ./cpu_scheduler/round_robin.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.948s] copying ./cpu_scheduler/priority.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.948s] copying ./cpu_scheduler/FCFS.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+[1.948s] running install
+[1.956s] running install_lib
+[1.993s] creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.994s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/process_node.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.994s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/terminal_monitor.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.994s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/__init__.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.995s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/visualization_node.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.995s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/process_table_printer.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.996s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/round_robin.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.997s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/priority.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.997s] copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/FCFS.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+[1.998s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/process_node.py to process_node.cpython-312.pyc
+[2.001s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/terminal_monitor.py to terminal_monitor.cpython-312.pyc
+[2.003s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/__init__.py to __init__.cpython-312.pyc
+[2.003s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/visualization_node.py to visualization_node.cpython-312.pyc
+[2.014s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/process_table_printer.py to process_table_printer.cpython-312.pyc
+[2.015s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/round_robin.py to round_robin.cpython-312.pyc
+[2.018s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/priority.py to priority.cpython-312.pyc
+[2.019s] byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/FCFS.py to FCFS.cpython-312.pyc
+[2.021s] running install_data
+[2.022s] creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index
+[2.023s] creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index
+[2.023s] creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index/packages
+[2.023s] copying resource/cpu_scheduler -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index/packages
+[2.024s] copying package.xml -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler
+[2.024s] creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler/launch
+[2.024s] copying launch/scheduler.launch.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler/launch
+[2.024s] running install_egg_info
+[2.061s] Copying ../../build/cpu_scheduler/cpu_scheduler.egg-info to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler-0.1.0-py3.12.egg-info
+[2.066s] running install_scripts
+[2.339s] Installing FCFS script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.339s] Installing Priority_Scheduling script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.340s] Installing process_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.342s] Installing process_table_printer script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.343s] Installing round_robin script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.343s] Installing terminal_monitor script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.343s] Installing visualization_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+[2.344s] writing list of installed files to '/home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log'
+[2.369s] Invoked command in '/home/az/Desktop/ros2_ws/src/cpu_scheduler' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/az/Desktop/ros2_ws/build/cpu_scheduler/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cpu_scheduler build --build-base /home/az/Desktop/ros2_ws/build/cpu_scheduler/build install --record /home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log --single-version-externally-managed install_data

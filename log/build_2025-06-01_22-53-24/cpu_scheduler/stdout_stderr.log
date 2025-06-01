@@ -1,0 +1,61 @@
+running egg_info
+creating ../../build/cpu_scheduler/cpu_scheduler.egg-info
+writing ../../build/cpu_scheduler/cpu_scheduler.egg-info/PKG-INFO
+writing dependency_links to ../../build/cpu_scheduler/cpu_scheduler.egg-info/dependency_links.txt
+writing entry points to ../../build/cpu_scheduler/cpu_scheduler.egg-info/entry_points.txt
+writing requirements to ../../build/cpu_scheduler/cpu_scheduler.egg-info/requires.txt
+writing top-level names to ../../build/cpu_scheduler/cpu_scheduler.egg-info/top_level.txt
+writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+reading manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build
+creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib
+creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/process_node.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/terminal_monitor.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/__init__.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/visualization_node.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/process_table_printer.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/round_robin.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/priority.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+copying ./cpu_scheduler/FCFS.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler
+running install
+running install_lib
+creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/process_node.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/terminal_monitor.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/__init__.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/visualization_node.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/process_table_printer.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/round_robin.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/priority.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/FCFS.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/process_node.py to process_node.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/terminal_monitor.py to terminal_monitor.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/visualization_node.py to visualization_node.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/process_table_printer.py to process_table_printer.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/round_robin.py to round_robin.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/priority.py to priority.cpython-312.pyc
+byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/FCFS.py to FCFS.cpython-312.pyc
+running install_data
+creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index
+creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index
+creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index/packages
+copying resource/cpu_scheduler -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index/packages
+copying package.xml -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler
+creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler/launch
+copying launch/scheduler.launch.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler/launch
+running install_egg_info
+Copying ../../build/cpu_scheduler/cpu_scheduler.egg-info to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler-0.1.0-py3.12.egg-info
+running install_scripts
+Installing FCFS script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+Installing Priority_Scheduling script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+Installing process_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+Installing process_table_printer script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+Installing round_robin script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+Installing terminal_monitor script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+Installing visualization_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler
+writing list of installed files to '/home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log'

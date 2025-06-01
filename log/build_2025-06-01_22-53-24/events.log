@@ -1,0 +1,91 @@
+[0.000000] (-) TimerEvent: {}
+[0.000345] (cpu_scheduler) JobQueued: {'identifier': 'cpu_scheduler', 'dependencies': OrderedDict()}
+[0.000422] (cpu_scheduler) JobStarted: {'identifier': 'cpu_scheduler'}
+[0.098381] (-) TimerEvent: {}
+[0.198825] (-) TimerEvent: {}
+[0.300814] (-) TimerEvent: {}
+[0.401511] (-) TimerEvent: {}
+[0.502438] (-) TimerEvent: {}
+[0.604711] (-) TimerEvent: {}
+[0.708652] (-) TimerEvent: {}
+[0.809289] (-) TimerEvent: {}
+[0.909958] (-) TimerEvent: {}
+[1.010647] (-) TimerEvent: {}
+[1.111160] (-) TimerEvent: {}
+[1.211781] (-) TimerEvent: {}
+[1.312506] (-) TimerEvent: {}
+[1.397155] (cpu_scheduler) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/cpu_scheduler', 'build', '--build-base', '/home/az/Desktop/ros2_ws/build/cpu_scheduler/build', 'install', '--record', '/home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/az/Desktop/ros2_ws/src/cpu_scheduler', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'az', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/az', 'OLDPWD': '/home/az/Desktop/ros2_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2570', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/az/Desktop/ros2_ws/install:/home/az/Desktop/ros2_ws_F/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'az', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'az', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/az:@/tmp/.ICE-unix/2540,unix/az:/tmp/.ICE-unix/2540', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/8dd75ee1_cb24_4e4b_b3e8_4eeccdf85bfc', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.LSGG72', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.104', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/az/Desktop/ros2_ws/install/cpu_scheduler:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/az/Desktop/ros2_ws/build/cpu_scheduler', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/az/Desktop/ros2_ws/build/cpu_scheduler/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages:/home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[1.412742] (-) TimerEvent: {}
+[1.513316] (-) TimerEvent: {}
+[1.613938] (-) TimerEvent: {}
+[1.714626] (-) TimerEvent: {}
+[1.815216] (-) TimerEvent: {}
+[1.842468] (cpu_scheduler) StdoutLine: {'line': b'running egg_info\n'}
+[1.844302] (cpu_scheduler) StdoutLine: {'line': b'creating ../../build/cpu_scheduler/cpu_scheduler.egg-info\n'}
+[1.875113] (cpu_scheduler) StdoutLine: {'line': b'writing ../../build/cpu_scheduler/cpu_scheduler.egg-info/PKG-INFO\n'}
+[1.875466] (cpu_scheduler) StdoutLine: {'line': b'writing dependency_links to ../../build/cpu_scheduler/cpu_scheduler.egg-info/dependency_links.txt\n'}
+[1.875664] (cpu_scheduler) StdoutLine: {'line': b'writing entry points to ../../build/cpu_scheduler/cpu_scheduler.egg-info/entry_points.txt\n'}
+[1.877412] (cpu_scheduler) StdoutLine: {'line': b'writing requirements to ../../build/cpu_scheduler/cpu_scheduler.egg-info/requires.txt\n'}
+[1.877608] (cpu_scheduler) StdoutLine: {'line': b'writing top-level names to ../../build/cpu_scheduler/cpu_scheduler.egg-info/top_level.txt\n'}
+[1.877788] (cpu_scheduler) StdoutLine: {'line': b"writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'\n"}
+[1.917781] (-) TimerEvent: {}
+[1.941516] (cpu_scheduler) StdoutLine: {'line': b"reading manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'\n"}
+[1.942325] (cpu_scheduler) StdoutLine: {'line': b"writing manifest file '../../build/cpu_scheduler/cpu_scheduler.egg-info/SOURCES.txt'\n"}
+[1.943020] (cpu_scheduler) StdoutLine: {'line': b'running build\n'}
+[1.943409] (cpu_scheduler) StdoutLine: {'line': b'running build_py\n'}
+[1.943954] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build\n'}
+[1.944226] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib\n'}
+[1.944441] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.944620] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/process_node.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.944836] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/terminal_monitor.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.945024] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/__init__.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.947473] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/visualization_node.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.947777] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/process_table_printer.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.947967] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/round_robin.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.948194] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/priority.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.948377] (cpu_scheduler) StdoutLine: {'line': b'copying ./cpu_scheduler/FCFS.py -> /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler\n'}
+[1.948556] (cpu_scheduler) StdoutLine: {'line': b'running install\n'}
+[1.955466] (cpu_scheduler) StdoutLine: {'line': b'running install_lib\n'}
+[1.992740] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.993728] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/process_node.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.994621] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/terminal_monitor.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.994817] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/__init__.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.994996] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/visualization_node.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.995221] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/process_table_printer.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.995479] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/round_robin.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.996833] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/priority.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.997704] (cpu_scheduler) StdoutLine: {'line': b'copying /home/az/Desktop/ros2_ws/build/cpu_scheduler/build/lib/cpu_scheduler/FCFS.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler\n'}
+[1.997943] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/process_node.py to process_node.cpython-312.pyc\n'}
+[2.001039] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/terminal_monitor.py to terminal_monitor.cpython-312.pyc\n'}
+[2.002679] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/__init__.py to __init__.cpython-312.pyc\n'}
+[2.003203] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/visualization_node.py to visualization_node.cpython-312.pyc\n'}
+[2.014483] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/process_table_printer.py to process_table_printer.cpython-312.pyc\n'}
+[2.015261] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/round_robin.py to round_robin.cpython-312.pyc\n'}
+[2.018146] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/priority.py to priority.cpython-312.pyc\n'}
+[2.018427] (-) TimerEvent: {}
+[2.019690] (cpu_scheduler) StdoutLine: {'line': b'byte-compiling /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler/FCFS.py to FCFS.cpython-312.pyc\n'}
+[2.020996] (cpu_scheduler) StdoutLine: {'line': b'running install_data\n'}
+[2.022589] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index\n'}
+[2.022905] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index\n'}
+[2.023106] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index/packages\n'}
+[2.023283] (cpu_scheduler) StdoutLine: {'line': b'copying resource/cpu_scheduler -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/ament_index/resource_index/packages\n'}
+[2.024054] (cpu_scheduler) StdoutLine: {'line': b'copying package.xml -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler\n'}
+[2.024337] (cpu_scheduler) StdoutLine: {'line': b'creating /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler/launch\n'}
+[2.024585] (cpu_scheduler) StdoutLine: {'line': b'copying launch/scheduler.launch.py -> /home/az/Desktop/ros2_ws/install/cpu_scheduler/share/cpu_scheduler/launch\n'}
+[2.024757] (cpu_scheduler) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.061617] (cpu_scheduler) StdoutLine: {'line': b'Copying ../../build/cpu_scheduler/cpu_scheduler.egg-info to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/python3.12/site-packages/cpu_scheduler-0.1.0-py3.12.egg-info\n'}
+[2.066289] (cpu_scheduler) StdoutLine: {'line': b'running install_scripts\n'}
+[2.118707] (-) TimerEvent: {}
+[2.219551] (-) TimerEvent: {}
+[2.320069] (-) TimerEvent: {}
+[2.337569] (cpu_scheduler) StdoutLine: {'line': b'Installing FCFS script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.339574] (cpu_scheduler) StdoutLine: {'line': b'Installing Priority_Scheduling script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.339861] (cpu_scheduler) StdoutLine: {'line': b'Installing process_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.342318] (cpu_scheduler) StdoutLine: {'line': b'Installing process_table_printer script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.343213] (cpu_scheduler) StdoutLine: {'line': b'Installing round_robin script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.343495] (cpu_scheduler) StdoutLine: {'line': b'Installing terminal_monitor script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.343677] (cpu_scheduler) StdoutLine: {'line': b'Installing visualization_node script to /home/az/Desktop/ros2_ws/install/cpu_scheduler/lib/cpu_scheduler\n'}
+[2.343858] (cpu_scheduler) StdoutLine: {'line': b"writing list of installed files to '/home/az/Desktop/ros2_ws/build/cpu_scheduler/install.log'\n"}
+[2.369552] (cpu_scheduler) CommandEnded: {'returncode': 0}
+[2.387322] (cpu_scheduler) JobEnded: {'identifier': 'cpu_scheduler', 'rc': 0}
+[2.390024] (-) EventReactorShutdown: {}
